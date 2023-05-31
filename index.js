@@ -1,22 +1,10 @@
 import express from 'express'
+import { app as ProductRouter } from "./Routes/Products.js";
 
 const app = express()
 
-app.get("/", (req, res) => {
-    res.send("Velkommen til min NodeJS app. Igen..");
-})
+app.use(ProductRouter)
 
-app.get("/about", (req, res) => {
-    res.send("Læs om min NodeJS app..");
-})
-
-app.get("/products", (req, res) => {
-    res.send("Produkter")
-})
-
-app.get("/products/details", (req, res) => {
-    res.send("Produkt detaljer")
-})
 
 //Hvis siden ikke kan findes
 app.use((req, res) => {
