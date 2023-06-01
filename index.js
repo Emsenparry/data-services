@@ -1,7 +1,13 @@
 import express from 'express'
+import dotenv from 'dotenv'
 import { postRouter } from './Routes/PostRouter.js';
+import { productRouter } from './Routes/ProductPoster.js';
 
 const app = express()
+
+dotenv.config()
+
+const port = process.env.PORT;
 
 app.get("/", (req, res) => {
     res.send("Velkommen til min NodeJS app. Igen..");
@@ -9,6 +15,7 @@ app.get("/", (req, res) => {
 
 // Links kommer fra ProductRouter filen
 app.use(postRouter)
+app.use(productRouter)
 
 
 //Hvis siden ikke kan findes
@@ -17,6 +24,6 @@ app.use((req, res) => {
 })
 
 // Hvilekn port lytter vi til
-app.listen(4242, () => {
-    console.log('Server kører på port 4242: http://localhost:4242');
+app.listen(port, () => {
+console.log(`Server kører på http://localhost:${port}`);
 })
