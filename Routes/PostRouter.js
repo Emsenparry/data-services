@@ -4,6 +4,7 @@ const postRouter = express.Router()
 
 
 postRouter.get("/", (req, res) => {
+    console.log(req.query);
     res.send("Here you can get all posters");
 })
 postRouter.post("/", (req, res) => {
