@@ -1,10 +1,14 @@
 import express from 'express'
-import { router as ProductRouter } from "./Routes/ProductRouter.js";
+import { postRouter } from './Routes/PostRouter.js';
 
 const app = express()
 
+app.get("/", (req, res) => {
+    res.send("Velkommen til min NodeJS app. Igen..");
+})
+
 // Links kommer fra ProductRouter filen
-app.use(ProductRouter)
+app.use(postRouter)
 
 
 //Hvis siden ikke kan findes
