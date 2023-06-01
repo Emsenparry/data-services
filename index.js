@@ -2,11 +2,11 @@ import express from 'express'
 import dotenv from 'dotenv'
 import { postRouter } from './Routes/PostRouter.js';
 import { productRouter } from './Routes/ProductPoster.js';
-
-const app = express()
-
 dotenv.config()
 
+
+const app = express()
+app.use(express.urlencoded({ extended: true}))
 const port = process.env.PORT;
 
 app.get("/", (req, res) => {
@@ -14,8 +14,10 @@ app.get("/", (req, res) => {
 })
 
 // Links kommer fra ProductRouter filen
-app.use(postRouter)
+app.use("/posts", postRouter)
 app.use(productRouter)
+
+
 
 
 //Hvis siden ikke kan findes

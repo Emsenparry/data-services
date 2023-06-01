@@ -7,7 +7,7 @@ productRouter.get("/products", (req, res) => {
     res.send("Here you can get all products");
 })
 productRouter.post("/products", (req, res) => {
-    res.send("Here you can make a products");
+    res.send("Here you can create products");
 })
 productRouter.put("/products", (req, res) => {
     res.send("Here you can update a products");

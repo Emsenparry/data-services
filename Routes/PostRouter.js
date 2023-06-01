@@ -3,16 +3,16 @@ import express from'express'
 const postRouter = express.Router()
 
 
-postRouter.get("/posts", (req, res) => {
+postRouter.get("/", (req, res) => {
     res.send("Here you can get all posters");
 })
-postRouter.post("/posts", (req, res) => {
-    res.send("Here you can make a poster");
+postRouter.post("/", (req, res) => {
+    res.send(`${req.body.firstname} ${req.body.lastname}`);
 })
-postRouter.put("/posts", (req, res) => {
+postRouter.put("/", (req, res) => {
     res.send("Here you can update a poster");
 })
-postRouter.delete("/posts", (req, res) => {
+postRouter.delete("/", (req, res) => {
     res.send("Here you can delete posters");
 })
 
