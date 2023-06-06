@@ -9,6 +9,20 @@ db.query(`SELECT title FROM song`, (err, result) => {
     console.log(result);
 })
 
+db.query(`SELECT s.id, s.title, s.content, s.artist_id, a.name
+        FROM song s 
+        JOIN artist a
+        ON s.artist_id = a.id 
+        `, (err, result) => {
+        if(err) {
+            console.error(err)
+        } else {
+          console.log(result);  
+        }
+        
+    }
+  );
+
 
 dotenv.config()
 
