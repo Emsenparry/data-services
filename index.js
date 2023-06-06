@@ -1,10 +1,18 @@
 import express from 'express'
 import { postRouter } from './Routes/PostRouter.js';
 import { productRouter } from './Routes/ProductPoster.js';
-
+import db from './Config/db.config.js';
 // Importerer og sætter dotenv til globale vars
 import dotenv from 'dotenv'
+
+db.query(`SELECT title FROM song`, (err, result) => {
+    console.log(result);
+})
+
+
 dotenv.config()
+
+
 
 // Deklarerer app var med ekspress objekt
 const app = express()
