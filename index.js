@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 
 
 // Anvender eksterne routes
-app.use("/posts", postRouter)
+app.use(postRouter)
 app.use(productRouter)
 
 
