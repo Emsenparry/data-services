@@ -95,7 +95,7 @@ class SongController {
     }
 
     delete = (req, res) => {
-        const id = req.params.id
+        const id = req.params.id || 0
         const sql = `DELETE FROM song
                      WHERE id = ?`
         
