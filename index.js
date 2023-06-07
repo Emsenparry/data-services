@@ -1,32 +1,12 @@
 import express from 'express'
-import { postRouter } from './Routes/PostRouter.js';
-import { productRouter } from './Routes/ProductPoster.js';
-import db from './Config/db.config.js';
+import { songRouter } from './Routes/song.router.js';
+
+
 // Importerer og sætter dotenv til globale vars
 import dotenv from 'dotenv'
 
-db.query(`SELECT title FROM song`, (err, result) => {
-    console.log(result);
-})
-
-db.query(`SELECT s.id, s.title, s.content, s.artist_id, a.name
-        FROM song s 
-        JOIN artist a
-        ON s.artist_id = a.id 
-        `, (err, result) => {
-        if(err) {
-            console.error(err)
-        } else {
-          console.log(result);  
-        }
-        
-    }
-  );
-
 
 dotenv.config()
-
-
 
 // Deklarerer app var med ekspress objekt
 const app = express()
@@ -42,9 +22,7 @@ app.get("/", (req, res) => {
 
 
 // Anvender eksterne routes
-app.use(postRouter)
-app.use(productRouter)
-
+app.use(songRouter)
 
 
 
