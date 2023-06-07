@@ -17,7 +17,6 @@ class SongController {
         attributes = attributes ? attributes : 's.id, s.title, a.name'
 
         const sql = `SELECT ${attributes}
-                    AS artist_id
                     FROM song s
                     JOIN artist a
                     ON s.artist_id = a.id
