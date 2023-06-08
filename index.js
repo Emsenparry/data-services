@@ -4,6 +4,7 @@ import { songRouter } from './Routes/song.router.js';
 
 // Importerer og sætter dotenv til globale vars
 import dotenv from 'dotenv'
+import { artistRouter } from './Routes/artist.router.js';
 
 
 dotenv.config()
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 
 // Anvender eksterne routes
 app.use(songRouter)
+app.use(artistRouter)
 
 
 
