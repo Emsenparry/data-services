@@ -34,7 +34,7 @@ class ArtistController {
                         WHERE id = ?
                         `
         db.query(sql, [id], (err, result) => {
-            if(err) {
+            if (err) {
                 console.error(err)
             } else {
                 res.json(result);
@@ -44,18 +44,36 @@ class ArtistController {
 
     create = (req, res) => {
         let { name } = req.body;
-    
+
         const sql = `INSERT INTO 
                         artist (name) 
                         VALUES (?)`
         db.query(sql, [name], (err, result) => {
-          if(err) {
-            console.error(err)
-          } else {
-            console.log('Artist oprettet')
-            res.json({ new_id: result.insertId })
-          }
-      })
+            if (err) {
+                console.error(err)
+            } else {
+                console.log('Artist oprettet')
+                res.json({ new_id: result.insertId })
+            }
+        })
+    }
+
+    update = (req, res) => {
+        let { name, id } = req.body;
+
+        const sql = `UPDATE artist SET
+                        name = ?
+                        WHERE id = ?`
+        db.query(sql, [name, id], (err, result) => {
+            if (err) {
+                console.error(err)
+            } else {
+                res.json({
+                    status: 'ok',
+                    updated_id: id
+                })
+            }
+        })
     }
 }
 
