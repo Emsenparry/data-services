@@ -41,6 +41,22 @@ class ArtistController {
             }
         })
     }
+
+    create = (req, res) => {
+        let { name } = req.body;
+    
+        const sql = `INSERT INTO 
+                        artist (name) 
+                        VALUES (?)`
+        db.query(sql, [name], (err, result) => {
+          if(err) {
+            console.error(err)
+          } else {
+            console.log('Artist oprettet')
+            res.json({ new_id: result.insertId })
+          }
+      })
+    }
 }
 
 export default ArtistController
