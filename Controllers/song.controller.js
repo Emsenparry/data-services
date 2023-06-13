@@ -1,4 +1,9 @@
 import SongModel from '../Models/song.model.js'
+import ArtistModel from '../Models/artist.model.js'
+
+// Join
+ArtistModel.hasMany(SongModel)
+SongModel.belongsTo(ArtistModel)
 
 class SongController {
     constructor() {
@@ -7,8 +12,12 @@ class SongController {
     list = async (req, res) => {
         const result = await SongModel.findAll({
             limit: 1,
-            attributes: ['title', 'content'],
-            order: ['content']
+            attributes: ['id', 'title'],
+            order: ['title'],
+            include: {
+                model: ArtistModel,
+                attributes: ['id', 'name']
+            }
         })
         res.json(result)
     }
