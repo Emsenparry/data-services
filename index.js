@@ -1,12 +1,11 @@
 import express from 'express'
 import { songRouter } from './Routes/song.router.js';
-
+import { artistRouter } from './Routes/artist.router.js';
+import InitRouter from './Routes/init.sequelize.router.js';
 
 // Importerer og sætter dotenv til globale vars
 import dotenv from 'dotenv'
-import { artistRouter } from './Routes/artist.router.js';
-
-
+import ArtistModel from './Models/artist.model copy.js';
 dotenv.config()
 
 // Deklarerer app var med ekspress objekt
@@ -16,15 +15,11 @@ app.use(express.urlencoded({ extended: true}))
 // Deklarer port for at kunne bruge den længere nede
 const port = process.env.PORT;
 
-// Kalder root route - forsiden af vores app 
-app.get("/", (req, res) => {
-    res.send("Velkommen til min NodeJS app. Igen..");
-})
-
 
 // Anvender eksterne routes
 app.use(songRouter)
 app.use(artistRouter)
+app.use(InitRouter)
 
 
 
