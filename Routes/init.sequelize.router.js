@@ -1,7 +1,10 @@
 import express from 'express'
 import { sequelize } from '../Config/db.sequelize.js'
-import SongModel from '../Models/song.model.js' 
-// import ArtistModel from '../Models/artist.model copy.js'
+
+// !!! Import the model that you want a table for !!!
+
+// import SongModel from '../Models/song.model.js' 
+// import ArtistModel from '../Models/artist.model.js'
 
 const InitRouter = express.Router()
 

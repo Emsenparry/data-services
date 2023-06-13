@@ -5,7 +5,6 @@ import InitRouter from './Routes/init.sequelize.router.js';
 
 // Importerer og sætter dotenv til globale vars
 import dotenv from 'dotenv'
-import ArtistModel from './Models/artist.model copy.js';
 dotenv.config()
 
 // Deklarerer app var med ekspress objekt
