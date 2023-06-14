@@ -2,6 +2,7 @@ import express from 'express'
 import { songRouter } from './Routes/song.router.js';
 import { artistRouter } from './Routes/artist.router.js';
 import InitRouter from './Routes/init.sequelize.router.js';
+import { userRouter } from './Routes/user.router.js';
 
 // Importerer og sætter dotenv til globale vars
 import dotenv from 'dotenv'
@@ -19,6 +20,7 @@ const port = process.env.PORT;
 app.use(songRouter)
 app.use(artistRouter)
 app.use(InitRouter)
+app.use(userRouter)
 
 
 
