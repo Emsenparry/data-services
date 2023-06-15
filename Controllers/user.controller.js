@@ -1,4 +1,8 @@
 import UserModel from '../Models/user.model.js'
+import OrgModel from '../Models/org.model.js';
+
+OrgModel.hasMany(UserModel)
+UserModel.belongsTo(OrgModel)
 
 class UserController {
     constructor() {
@@ -8,7 +12,11 @@ class UserController {
     list = async (req, res) => {
         const result = await UserModel.findAll({
             attributes: ['id', 'firstname', 'lastname'],
-            order: ['firstname']
+            order: ['firstname'],
+            include: {
+                model: OrgModel,
+                attributes: ['id', 'title']
+            }
         })
         res.json(result)
     }
@@ -34,9 +42,9 @@ class UserController {
 
     update = async (req, res) => {
         const { id } = req.params ||0
-        const { firstname, lastname, email, password } = req.body;
+        const { firstname, lastname, email, password, org_id } = req.body;
         
-        if(id && firstname && lastname && email && password) {
+        if(id && firstname && lastname && email && password && org_id) {
             const model = await UserModel.update(req.body, {
                 where: { id: id },
                 individualHooks: true
