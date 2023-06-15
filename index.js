@@ -4,9 +4,11 @@ import { artistRouter } from './Routes/artist.router.js';
 import InitRouter from './Routes/init.sequelize.router.js';
 import { userRouter } from './Routes/user.router.js';
 import { orgRouter } from './Routes/org.router.js';
+import { AuthRouter } from './Routes/authenticate.router.js';
 
 // Importerer og sætter dotenv til globale vars
 import dotenv from 'dotenv'
+
 
 dotenv.config()
 
@@ -24,7 +26,7 @@ app.use(artistRouter)
 app.use(InitRouter)
 app.use(userRouter)
 app.use(orgRouter)
-
+app.use(AuthRouter)
 
 
 // Skriver fejl hvis route ikke findes

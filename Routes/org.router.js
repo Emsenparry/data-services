@@ -1,6 +1,7 @@
 // Importerer dependencies
 import express from'express'
 import OrgController from '../Controllers/org.controller.js';
+import verifyToken from '../Middleware/verifytoken.js';
 
 // Deklarerer var til router
 const orgRouter = express.Router()
@@ -17,7 +18,7 @@ orgRouter.get('/org/:id([0-9]*)', (req, res) => {
 })
 
 // Route med POST method - opretter
-orgRouter.post("/org", (req, res) => {
+orgRouter.post("/org", verifyToken, (req, res) => {
     return org.create(req, res)
 })
 
