@@ -6,6 +6,7 @@ import { sequelize } from '../Config/db.sequelize.js'
 // import SongModel from '../Models/song.model.js' 
 // import ArtistModel from '../Models/artist.model.js'
 // import UserModel from '../Models/user.model.js'
+import OrgModel from '../Models/org.model.js'
 
 const InitRouter = express.Router()
 
