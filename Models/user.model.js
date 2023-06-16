@@ -32,6 +32,18 @@ UserModel.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    age: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    address: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    phone: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
     email: {
         type: DataTypes.STRING,
         allowNull: false

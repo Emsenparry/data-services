@@ -30,9 +30,9 @@ class UserController {
     }
 
     create = async (req, res) => {
-        const { firstname, lastname, email, password, org_id, is_active } = req.body;
+        const { firstname, lastname, age, address, phone, email, password, org_id, is_active } = req.body;
 
-        if (firstname && lastname && email && password && org_id && is_active) {
+        if (firstname && lastname && age && address && phone && email && password && org_id && is_active) {
             const model = await UserModel.create(req.body)
             res.json({ newId: model.id })
         } else {
@@ -42,9 +42,9 @@ class UserController {
 
     update = async (req, res) => {
         const { id } = req.params ||0
-        const { firstname, lastname, email, password, org_id } = req.body;
+        const { firstname, lastname, age, address, phone, email, password, org_id, is_active } = req.body;
         
-        if(id && firstname && lastname && email && password && org_id) {
+        if(id && firstname && lastname && age && address && phone && email && password && org_id && is_active) {
             const model = await UserModel.update(req.body, {
                 where: { id: id },
                 individualHooks: true
