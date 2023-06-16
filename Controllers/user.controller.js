@@ -41,7 +41,7 @@ class UserController {
     }
 
     update = async (req, res) => {
-        const { id } = req.params ||0
+        const { id } = req.params || 0
         const { firstname, lastname, age, address, phone, email, password, org_id, is_active } = req.body;
         
         if(id && firstname && lastname && age && address && phone && email && password && org_id && is_active) {
